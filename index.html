@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        *{
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body class="bg-black">
+
+    
+    <nav class="nav relative text-white flex  justify-between px-6">
+        <h1 class="text-2xl font-bold">MARS</h1>
+        <ul class="flex justify-end gap-6 ">
+          <li>HOME</li>
+          <li>ABOUT</li>
+          <li>EXPLORE</li>
+        </ul>
+      </nav>
+  
+      <h2 class="title text-white text-xl absolute top-[84vh] left-[45vw]">SPIN YOUR MOUSE</h2>
+
+    <div id="3d"class=" w-full h-[95vh] outline-none border-none"></div>
+      
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js" integrity="sha512-n8IpKWzDnBOcBhRlHirMZOUvEq2bLRMuJGjuVqbzUJwtTsgwOgK5aS0c1JA647XWYfqvXve8k3PtZdzpipFjgg==" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
+<script src="script.js"></script>
+
+<script>
+
+    const threeD = document.getElementById("3d");
+
+    const tl1 = gsap.timeline({defaults : {duration : 1} }) 
+    tl1.fromTo(threeD.scale,{z:0,x:0,y:0} , {z:1,x:1,y:1})
+    tl1.fromTo('nav',{y:"-100%"},{y:"3vh" , duration:0.5})
+    tl1.fromTo('.title',{opacity:0},{opacity:1})
+</script>
+
+</body>
+</html>
