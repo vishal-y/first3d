@@ -16,7 +16,6 @@ loader.load('./mars/scene.gltf', (gltf) => {
     scene.add(gltf.scene);
     renderer.render(scene, camera);
     mars = gltf.scene.children[0];
-    animate();
 });
 
 const animate = ()=>{
@@ -47,3 +46,17 @@ window.addEventListener("resize",()=>{
     camera.updateProjectionMatrix();
 })
 
+
+function addStar() {
+    const geo = new THREE.SphereGeometry(0.20, 24, 24);
+    const material = new THREE.MeshStandardMaterial({ color: 0xffffff , });
+    const star = new THREE.Mesh(geo, material);
+    const [x, y, z] = Array(3).fill().map(() => {
+        return THREE.Math.randFloatSpread(100);
+    });
+    star.position.set(x, y, z);
+    scene.add(star);
+}
+ Array.from(Array(240), addStar);
+
+ animate();
